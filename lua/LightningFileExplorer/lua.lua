@@ -33,14 +33,15 @@ LiFE = {
             path = '.'
         end
         path = vim.loop.fs_realpath(path)
+        path = string.gsub(path, '\\', '/')
         local dir = vim.loop.fs_opendir(path)
         if dir == nil then
-            print('LiFE: incorrect path!')
+            print('LiFE: incorrect path: ' .. path)
         else
             vim.loop.fs_closedir(dir)
         end
 
-        if string.find(path, "/$") == nil then
+        if string.sub(path, -1) ~= '/' then
             path = path .. '/'
         end
 
