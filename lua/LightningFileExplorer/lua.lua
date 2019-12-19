@@ -70,8 +70,8 @@ LiFE = {
 
     highlight = function(position, entry)
         if entry.type == 'directory' then
-            local hl_start = math.max(0, (entry.level - 1) * string.len(LiFE.trunk_line) + string.len(LiFE.branch_line))
-            vim.api.nvim_buf_add_highlight(buf, -1, "Directory", position, hl_start, hl_start + string.len(entry.name))
+            local line_end = string.len(vim.api.nvim_buf_get_lines(buf, position, position + 1, false)[1])
+            vim.api.nvim_buf_add_highlight(buf, -1, "Directory", position, line_end - string.len(entry.name) - 1, line_end - 1)
         end
     end,
 
@@ -199,6 +199,7 @@ LiFE = {
         end
         vim.loop.fs_closedir(dir)
         LiFE.path[buf] = path
+        LiFE.render_header(buf)
     end,
     
     click = function()
