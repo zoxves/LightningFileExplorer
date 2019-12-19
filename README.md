@@ -2,11 +2,11 @@
 Lightning-fast, lightweight, Lua-powered native file explorer for Neovim.
 The plugin is very basic and displays local files in lightning-like structure (i.e. tree).
 
-##Installation
+## Installation
 ```
 Plug 'zoxves/LightningFileExplorer'
 ```
-##Usage
+## Usage
 Basic:
 `:LiFE` or `:LiFE /Path/To/` or `:lua LiFE.open('/Path/To/')`
 
