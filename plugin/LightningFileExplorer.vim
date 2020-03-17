@@ -5,4 +5,4 @@ augroup LightningFileExplorer
     au BufDelete * lua LiFE.clean()
 augroup END
 
-command -nargs=* LiFE lua LiFE.open('<args>')
+command! -nargs=* LiFE lua LiFE.open('<args>')
